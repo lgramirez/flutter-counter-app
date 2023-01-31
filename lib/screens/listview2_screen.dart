@@ -15,6 +15,8 @@ class ListView2Screen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Listview Tipo 2"),
+          elevation: 0,
+          backgroundColor: Colors.indigo,
         ),
         // los constructures builder y separated son los mas usados
         // para cargar una lazy list y la unica diferencia es el
@@ -22,7 +24,11 @@ class ListView2Screen extends StatelessWidget {
         body: ListView.separated(
             itemBuilder: (context, index) => ListTile(
                   title: Text(options[index]),
-                  trailing: const Icon(Icons.arrow_forward_ios_outlined),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios_outlined,
+                    color: Colors.indigo,
+                  ),
+                  onTap: () {},
                 ),
             // cuando no se usa una variable es buena practica
             // usar guiones bajos para decir que no se usan
