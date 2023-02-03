@@ -20,6 +20,12 @@ class MyApp extends StatelessWidget {
         'card': (context) => const CardScreen(),
         'home': (context) => const HomeScreen()
       },
+      // este metodo es para cuando no existe la ruta
+      // entramos aqui para trabajar con rutas creadas de manera dinamica
+      onGenerateRoute: (settings) {
+        print(settings);
+        return MaterialPageRoute(builder: (context) => const AlertScreen());
+      },
     );
   }
 }
