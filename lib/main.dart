@@ -1,5 +1,5 @@
+import 'package:fl_components/router/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:fl_components/screens/screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -12,20 +12,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       // home: ListView2Screen(),
-      initialRoute: 'home',
-      routes: {
-        'listview1': (context) => const ListView1Screen(),
-        'listview2': (context) => const ListView2Screen(),
-        'alert': (context) => const AlertScreen(),
-        'card': (context) => const CardScreen(),
-        'home': (context) => const HomeScreen()
-      },
+      initialRoute: AppRoutes.initialRoute,
+      routes: AppRoutes.routes,
       // este metodo es para cuando no existe la ruta
       // entramos aqui para trabajar con rutas creadas de manera dinamica
-      onGenerateRoute: (settings) {
-        print(settings);
-        return MaterialPageRoute(builder: (context) => const AlertScreen());
-      },
+      onGenerateRoute: AppRoutes.onGenerateRoute,
     );
   }
 }
