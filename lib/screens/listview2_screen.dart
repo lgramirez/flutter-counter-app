@@ -15,8 +15,6 @@ class ListView2Screen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Listview Tipo 2"),
-          elevation: 0,
-          backgroundColor: Colors.indigo,
         ),
         // los constructures builder y separated son los mas usados
         // para cargar una lazy list y la unica diferencia es el

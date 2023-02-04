@@ -1,3 +1,4 @@
+import 'package:fl_components/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_components/router/app_routes.dart';
 // import 'package:fl_components/screens/screen.dart';
@@ -12,7 +13,6 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Componentes en Flutter"),
-          elevation: 0,
         ),
         body: ListView.separated(
             itemCount: menuOptions.length,
@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
               return ListTile(
                 leading: Icon(
                   menuOptions[index].icon,
-                  color: Colors.indigo,
+                  color: AppTheme.primary,
                 ),
                 title: Text(menuOptions[index].name),
                 onTap: () {
