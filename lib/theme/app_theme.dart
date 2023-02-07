@@ -4,12 +4,15 @@ class AppTheme {
   static const Color primary = Colors.indigo;
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
-      // color primario
-      primaryColor: primary,
-      // Appbar Theme
-      // copyWith nos permite tener una copia de todo el tema
-      // light y unicamente sobreescribir las propiedades que queremos
-      appBarTheme: const AppBarTheme(color: primary, elevation: 0));
+    // color primario
+    primaryColor: primary,
+    // Appbar Theme
+    // copyWith nos permite tener una copia de todo el tema
+    // light y unicamente sobreescribir las propiedades que queremos
+    appBarTheme: const AppBarTheme(color: primary, elevation: 0),
+    textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(foregroundColor: primary)),
+  );
 
   static final ThemeData darkTheme = ThemeData.dark().copyWith(
       // color primario
@@ -18,5 +21,8 @@ class AppTheme {
       // copyWith nos permite tener una copia de todo el tema
       // light y unicamente sobreescribir las propiedades que queremos
       appBarTheme: const AppBarTheme(color: primary, elevation: 0),
-      scaffoldBackgroundColor: Colors.black);
+      scaffoldBackgroundColor: Colors.black,
+      textButtonTheme: TextButtonThemeData(
+          // para estilizar los botones de un TextButton
+          style: TextButton.styleFrom(foregroundColor: primary)));
 }
