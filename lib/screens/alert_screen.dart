@@ -1,9 +1,12 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AlertScreen extends StatelessWidget {
   const AlertScreen({Key? key}) : super(key: key);
 
-  void displayDialog(BuildContext context) {
+  void displayDialogAndroid(BuildContext context) {
     showDialog(
         // poniendo esta propiedad en true permite que podamos apretar
         // en el fondo del elemento y cerrar esta alerta
@@ -30,7 +33,47 @@ class AlertScreen extends StatelessWidget {
             actions: [
               TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text('Cancelar'))
+                  child: const Text(
+                    'Cancelar',
+                    style: TextStyle(color: Colors.red),
+                  )),
+              TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('Ok'))
+            ],
+          );
+        });
+  }
+
+  void displayDialogIOS(BuildContext context) {
+    showCupertinoDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          return CupertinoAlertDialog(
+            title: const Text('titulo'),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Text('este es el contenido de la alerta'),
+                SizedBox(
+                  height: 10,
+                ),
+                FlutterLogo(
+                  size: 100,
+                )
+              ],
+            ),
+            actions: [
+              TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text(
+                    'Cancelar',
+                    style: TextStyle(color: Colors.red),
+                  )),
+              TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('Ok'))
             ],
           );
         });
@@ -53,7 +96,11 @@ class AlertScreen extends StatelessWidget {
               style: TextStyle(fontSize: 16),
             ),
           ),
-          onPressed: () => displayDialog(context),
+          // onPressed: () => displayDialogAndroid(context),
+          // onPressed: () => displayDialogIOS(context),
+          onPressed: () => Platform.isAndroid
+              ? displayDialogAndroid(context)
+              : displayDialogIOS(context),
         ),
       ),
       floatingActionButton: FloatingActionButton(

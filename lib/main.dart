@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       // este metodo es para cuando no existe la ruta
       // entramos aqui para trabajar con rutas creadas de manera dinamica
       onGenerateRoute: AppRoutes.onGenerateRoute,
-      theme: AppTheme.darkTheme,
+      theme: AppTheme.lightTheme,
     );
   }
 }
