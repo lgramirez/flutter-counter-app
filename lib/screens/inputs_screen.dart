@@ -26,32 +26,40 @@ class InputsScreen extends StatelessWidget {
             key: myFormKey,
             child: Column(
               children: [
-                const CustomInputField(
+                CustomInputField(
                   labelText: 'Nombre',
                   hintText: 'Nombre del Usuario',
+                  formProperty: 'first_name',
+                  formValues: formValues,
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                const CustomInputField(
+                CustomInputField(
                   labelText: 'Apellido',
                   hintText: 'Apellido del Usuario',
+                  formProperty: 'last_name',
+                  formValues: formValues,
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                const CustomInputField(
+                CustomInputField(
                   labelText: 'Correo',
                   hintText: 'Correo del Usuario',
                   keyboardType: TextInputType.emailAddress,
+                  formProperty: 'email',
+                  formValues: formValues,
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                const CustomInputField(
+                CustomInputField(
                   labelText: 'Contraseña',
                   hintText: 'Contraseña del Usuario',
                   obscureText: true,
+                  formProperty: 'password',
+                  formValues: formValues,
                 ),
                 const SizedBox(
                   height: 30,
@@ -63,6 +71,7 @@ class InputsScreen extends StatelessWidget {
                         print('Formulario no valido');
                         return;
                       }
+                      print(formValues);
                     },
                     child: const SizedBox(
                       width: double.infinity,
